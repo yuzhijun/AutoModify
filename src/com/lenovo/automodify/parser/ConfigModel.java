@@ -16,8 +16,34 @@ public class ConfigModel {
 	private String BtnNormalColor;
 	private String BtnPressColor;
 	private String AppName;
+	private String BDMapKey;
+	private String PackageName;
+	private String VersionCode;
 	
-	
+
+	public String getVersionCode() {
+		return VersionCode;
+	}
+
+	public void setVersionCode(String versionCode) {
+		VersionCode = versionCode;
+	}
+
+	public String getPackageName() {
+		return PackageName;
+	}
+
+	public void setPackageName(String packageName) {
+		PackageName = packageName;
+	}
+
+	public String getBDMapKey() {
+		return BDMapKey;
+	}
+
+	public void setBDMapKey(String bDMapKey) {
+		BDMapKey = bDMapKey;
+	}
 
 	public String getAppName() {
 		return AppName;

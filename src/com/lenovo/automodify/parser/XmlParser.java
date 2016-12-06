@@ -33,7 +33,7 @@ public class XmlParser {
 		ConfigModel info = null;
 		try {
 	        //先创建DocumentBuilderFactory的实例
-	        Document doc = dbf.newDocumentBuilder().parse("src\\com\\lenovohit\\automodify\\parser\\config.xml");
+	        Document doc = dbf.newDocumentBuilder().parse("src\\com\\lenovo\\automodify\\parser\\config.xml");
 			// 下面开始读取
 			Element root = doc.getDocumentElement(); // 获取根元素
 			NodeList configInfo = root.getElementsByTagName("info");
@@ -53,6 +53,9 @@ public class XmlParser {
 				 info.setBtnNormalColor(getValueByKey(ss, "BtnNormalColor"));
 				 info.setBtnPressColor(getValueByKey(ss, "BtnPressColor"));
 				 info.setAppName(getValueByKey(ss, "AppName"));
+				 info.setBDMapKey(getValueByKey(ss, "BDMapKey"));
+				 info.setPackageName(getValueByKey(ss, "PackageName"));
+				 info.setVersionCode(getValueByKey(ss, "VersionCode"));
 //				 info.setS_isIOC(getValueByKey(ss,"s_isIOC"));
 //				 info.setIsSJYY(setStringToBoolean(getValueByKey(ss,"isSJYY")));
 			}
@@ -69,11 +72,11 @@ public class XmlParser {
 		return info;
 	}
 	
-	public static String parserValueXml(){
+	public static String parserColorXml(){
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		try {
 			 //先创建DocumentBuilderFactory的实例
-	        Document doc = dbf.newDocumentBuilder().parse(ProjectPathTree.ValuesPath + "\\values.xml");
+	        Document doc = dbf.newDocumentBuilder().parse(ProjectPathTree.ValuesPath + "\\colors.xml");
 	    	// 下面开始读取
 			Element root = doc.getDocumentElement(); // 获取根元素
 			NodeList configInfo = root.getElementsByTagName("color");
@@ -93,7 +96,34 @@ public class XmlParser {
 					ss.getFirstChild().setTextContent(BaseMain.mConfigModel.getBtnNormalColor());
 				}else if(ss.getAttribute("name").equals("btn_colors_press")){
 					ss.getFirstChild().setTextContent(BaseMain.mConfigModel.getBtnPressColor());
-				}else if(ss.getAttribute("name").equals("app_name")){
+				}
+			}
+			
+			TransformerFactory tf = TransformerFactory.newInstance();
+			Transformer transformer = tf.newTransformer();
+			transformer.setParameter("version","1.0");
+			transformer.setParameter("encoding","utf-8");
+			DOMSource xmlSource = new DOMSource(doc);
+			StreamResult outputTarget = new StreamResult(new File(ProjectPathTree.ValuesPath + "\\colors.xml"));
+			transformer.transform(xmlSource,outputTarget);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	public static String parserAppName(){
+		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+		try {
+			 //先创建DocumentBuilderFactory的实例
+	        Document doc = dbf.newDocumentBuilder().parse(ProjectPathTree.ValuesPath + "\\strings.xml");
+	    	// 下面开始读取
+			Element root = doc.getDocumentElement(); // 获取根元素
+			NodeList configInfo = root.getElementsByTagName("string");
+			for (int i = 0; i < configInfo.getLength(); i++) {
+				Element ss = (Element) configInfo.item(i);
+				if (ss.getAttribute("name").equals("app_name")) {
 					ss.getFirstChild().setTextContent(BaseMain.mConfigModel.getAppName());
 				}
 			}
@@ -101,15 +131,42 @@ public class XmlParser {
 			TransformerFactory tf = TransformerFactory.newInstance();
 			Transformer transformer = tf.newTransformer();
 			transformer.setParameter("version","1.0");
-			transformer.setParameter("encoding","GBK");
+			transformer.setParameter("encoding","utf-8");
 			DOMSource xmlSource = new DOMSource(doc);
-			StreamResult outputTarget = new StreamResult(new File(ProjectPathTree.ValuesPath + "\\values.xml"));
+			StreamResult outputTarget = new StreamResult(new File(ProjectPathTree.ValuesPath + "\\strings.xml"));
 			transformer.transform(xmlSource,outputTarget);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 		return null;
+	}
+	
+	public static void parserAndroidManifest(){
+		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+		try {
+			 //先创建DocumentBuilderFactory的实例
+	        Document doc = dbf.newDocumentBuilder().parse(ProjectPathTree.MainPath + "\\AndroidManifest.xml");
+	    	// 下面开始读取
+			Element root = doc.getDocumentElement(); // 获取根元素
+			root.setAttribute("package", BaseMain.mConfigModel.getPackageName());
+			
+			NodeList nodeList = root.getElementsByTagName("meta-data");
+			Element ss = (Element) nodeList.item(0);
+			ss.setAttribute("android:value", "la95E1NT1HQ1Xrpz5ZbtoEvqBBrjcKG66");
+			
+			TransformerFactory tf = TransformerFactory.newInstance();
+			Transformer transformer = tf.newTransformer();
+			transformer.setParameter("version","1.0");
+			transformer.setParameter("encoding","utf-8");
+			DOMSource xmlSource = new DOMSource(doc);
+			StreamResult outputTarget = new StreamResult(new File(ProjectPathTree.MainPath + "\\AndroidManifest.xml"));
+			transformer.transform(xmlSource,outputTarget);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return;
 	}
 	
 	
