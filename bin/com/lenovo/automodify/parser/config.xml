@@ -2,11 +2,14 @@
 <infolist>
 <!-- info元素可以有多个 -->
     <info>
-    	<SourcePath>C:\Users\yuzhijun\Desktop\eHospital_Group_Release\mipmap-hdpi</SourcePath><!-- 替换图片包文件存放路径 -->
-		<ProjectPath>C:\Users\yuzhijun\Desktop\eHospital_Group_Release\eHospitalGroup_red_aar</ProjectPath><!-- 工程存放路径 -->
-		<ProjectName>HospitalS_Group</ProjectName><!-- 工程名字 -->
-		<AARName>hospitals-release.aar</AARName><!-- aar依赖包名称 -->
-		<AppName>联想智慧医疗</AppName><!-- 应用在应用市场的名称 -->
+    	<AppName>联想智慧医疗</AppName><!-- 应用在应用市场的名称 -->
+		<ProjectName>HospitalS</ProjectName><!-- 工程名字 -->
+		<PackageName>com.lenovohit.hospital</PackageName><!-- 应用程序的包名,在市场中唯一所以取名规则最好为com.lenovohit.实施医院 -->
+		<VersionCode>1</VersionCode><!-- 工程的版本号 -->
+		<BDMapKey>la95E1NT1HQ1Xrpz5ZbtoEvqBBrjcKG6</BDMapKey><!-- 百度的key -->
+		<ProjectPath>E:\eHospitalGroup_Ant\eHospitalGroup_red\eHealthAndroidApp_Group</ProjectPath><!-- 工程存放路径 -->
+		<SourcePath>E:\eHospitalGroup_Ant\mipmap-hdpi</SourcePath><!-- 替换图片包文件存放路径 -->
+		
 		
 		<!-- 主题色(其中按钮颜色部分未统一，到时修改时候尽量统一) -->
 		<AppThemeColor>#BE0F0F</AppThemeColor><!-- 应用主题颜色 -->
@@ -17,5 +20,8 @@
 		<BtnNormalColor>#CF2A27</BtnNormalColor><!-- 部分切换按钮颜色 -->
 		<BtnPressColor>#BE0F0F</BtnPressColor><!-- 部分切换按钮点击颜色 -->
 		
+		
+		<!-- 已用不到-->
+		<AARName>hospitals-release.aar</AARName><!-- aar依赖包名称:在这个工程中不用配置 -->
     </info>
 </infolist>

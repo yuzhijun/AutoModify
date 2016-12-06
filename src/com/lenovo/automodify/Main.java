@@ -12,15 +12,14 @@ import com.lenovo.automodify.utils.ProjectPathTree;
 
 public class Main extends BaseMain{
 
-	public static void main(String[] args) {
-		System.out.println("批處理成功");
-//		//0.先读取配置文件，加载进基础信息
-//		mConfigModel = XmlParser.readXMLFile();
-//		if (mConfigModel == null) {
-//			System.out.println("配置文件获取失败!");
-//			return;
-//		}
-//		
+	public static void main(String[] args) {	
+		//0.先读取配置文件，加载进基础信息
+		mConfigModel = XmlParser.readXMLFile();
+		if (mConfigModel == null) {
+			System.out.println("配置文件获取失败!");
+			return;
+		}
+		
 ////		//1.替换assets包中的config.properties文件
 //		FileHandler.copyFileIfExist("src\\com\\lenovohit\\automodify\\parser\\config.properties", ProjectPathTree.AssetsPath +"\\config.properties");
 ////		//2.更换主题色
@@ -45,19 +44,19 @@ public class Main extends BaseMain{
 //		//6.修改build.gradle文件的包名
 //		//7.替换*.java文件中名称为com.lenovohit.hospitals.R的R文件为新的包名.R
 //		//8.替换版本号
-//		ArrayList<File> gradle_modifyFile = new ArrayList<>();
+		ArrayList<File> gradle_modifyFile = new ArrayList<>();
 //		ArrayList<File> r_modifyFile = new ArrayList<>();
-//		ArrayList<File> versoin_modifyFile = new ArrayList<>();
-//		try {
-//			ContextReplace.findFiles(ProjectPathTree.AppPath, "build.gradle", gradle_modifyFile, "com.lenovohit.hospitals", mConfigModel.getPackageName());
+		ArrayList<File> versoin_modifyFile = new ArrayList<>();
+		try {
+			ContextReplace.findFiles(ProjectPathTree.AppPath, "build.gradle", gradle_modifyFile, "com.lenovohit.hospitals", mConfigModel.getPackageName());
 //			ContextReplace.findFiles(ProjectPathTree.MainPath+"\\java\\com", "*.java", r_modifyFile, "com.lenovohit.hospitals", mConfigModel.getPackageName()+".R");
-//			ContextReplace.findFiles(ProjectPathTree.AppPath, "build.gradle", versoin_modifyFile, "100",mConfigModel.getVersionCode());
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//			return;
-//		} catch (InterruptedException e) {
-//			e.printStackTrace();
-//			return;
-//		}
+			ContextReplace.findFiles(ProjectPathTree.AppPath, "build.gradle", versoin_modifyFile, "100",mConfigModel.getVersionCode());
+		} catch (IOException e) {
+			e.printStackTrace();
+			return;
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			return;
+		}
 	}
 }
