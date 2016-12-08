@@ -28,14 +28,14 @@ public class ProjectPathTree {
 	//工程的main路径
 	public static final String MainPath = AppPath + "\\src\\main";
 	
-	//工程中代码路径
-	public static final String SrcPath = MainPath + "\\java\\com\\lenovohit\\hospitals";
+	//工程中代码路径上一级
+	public static final String SrcPath = MainPath + "\\java\\com\\lenovohit";
 	
 	//工程包中res包路径
 	public static final String ResPath = MainPath + "\\res";
 	
 	//工程包中assets包路径
-	public static final String AssetsPath = LibPath + "\\assets";
+	public static final String AssetsPath = MainPath + "\\assets";
 	
 	//工程包中raw包路径
 	public static final String RawPath = ResPath + "\\raw";

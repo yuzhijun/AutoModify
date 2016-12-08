@@ -5,4 +5,3 @@ set CLASSPATH=%CLASSPATH%;.\conf;.\bin
 
 java -Xms50m -Xmx250m com.lenovo.automodify.Main
 EndLocal
-pause

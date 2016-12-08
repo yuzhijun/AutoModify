@@ -4,7 +4,7 @@
     <info>
     	<AppName>联想智慧医疗</AppName><!-- 应用在应用市场的名称 -->
 		<ProjectName>HospitalS</ProjectName><!-- 工程名字 -->
-		<PackageName>com.lenovohit.hospital</PackageName><!-- 应用程序的包名,在市场中唯一所以取名规则最好为com.lenovohit.实施医院 -->
+		<PackageName>com.lenovohit.hospital</PackageName><!-- 应用程序的包名,在市场中唯一,取名规则必须为com.lenovohit.实施医院,因为在代码中有用到这个名词 -->
 		<VersionCode>1</VersionCode><!-- 工程的版本号 -->
 		<BDMapKey>la95E1NT1HQ1Xrpz5ZbtoEvqBBrjcKG6</BDMapKey><!-- 百度的key -->
 		<ProjectPath>E:\eHospitalGroup_Ant\eHospitalGroup_red\eHealthAndroidApp_Group</ProjectPath><!-- 工程存放路径 -->

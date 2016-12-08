@@ -182,4 +182,26 @@ public class BaseMain {
 	public static String getProjectPathAll(){
 		return ProjectPathTree.BaseProjectPath;
 	}
+	
+	public static void executeBat(){
+		File dir = new File(BaseMain.getProjectPathAll());
+		String batName = "cmd /c start " + BaseMain.getProjectPathAll() + "\\gradlestartup.bat";
+		Process ps = null;
+        try {
+             ps = Runtime.getRuntime().exec(batName,null,dir);
+             ps.waitFor();
+         } catch (IOException e) {
+             e.printStackTrace();
+         } catch (InterruptedException e) {
+             e.printStackTrace();
+         }
+        int i = ps.exitValue();
+        if (i == 0) {
+        	System.out.println("执行完成.") ;
+        } else {
+        	System.out.println("执行失败.") ;
+        }
+        ps.destroy();
+        ps = null;
+	}
 }
