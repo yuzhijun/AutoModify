@@ -24,7 +24,6 @@ public class ProjectPathTree {
 //	//工程中aar包备份路径
 //	public static final String AppPath = BaseProjectPath + "\\app";
 	
-	
 	//工程的main路径
 	public static final String MainPath = AppPath + "\\src\\main";
 	
@@ -42,6 +41,15 @@ public class ProjectPathTree {
 	
 	//工程包中values包路径
 	public static final String ValuesPath = ResPath + "\\values";
+	
+	//工程中src目录
+	public static final String SrcRootPath = AppPath + "\\src";
+	
+	//androidTest工程代码路径上一级
+	public static final String AndroidTestPath = SrcRootPath + "\\androidTest\\java\\com\\lenovohit";
+	
+	//Test工程代码路径上一级
+	public static final String TestPath = SrcRootPath + "\\test\\java\\com\\lenovohit";
 	
 	//工程包中图片包路径
 	public static final String DrawablePath01 = ResPath + "\\mipmap-hdpi";
