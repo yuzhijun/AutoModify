@@ -1,0 +1,2 @@
+# AutoModify
+用于自动修改android工程里面内容重新生成一份可以直接发布的apk
