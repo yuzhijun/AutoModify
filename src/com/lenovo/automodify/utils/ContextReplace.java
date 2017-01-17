@@ -13,6 +13,7 @@ import java.io.PrintWriter;
 import java.util.List;
 /**
  * @author yuzhijun
+ * 递归路径并替换文件中的字符串支持*.java,?.java的匹配
  * */
 public class ContextReplace {
 	/**

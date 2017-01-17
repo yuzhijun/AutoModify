@@ -9,7 +9,10 @@ import com.lenovo.automodify.utils.ContextReplace;
 import com.lenovo.automodify.utils.FileHandler;
 import com.lenovo.automodify.utils.ProjectPathTree;
 
-
+/**
+ * @author yuzhijun
+ * 程序的入口
+ * */
 public class Main extends BaseMain{
 
 	public static void main(String[] args) {	
@@ -42,7 +45,6 @@ public class Main extends BaseMain{
 		//修改小米的权限归属包名
 		//修改AndroidManifest.xml文件中的包名
 		//修改AndroidManifest.xml文件中baidu APIKEY
-		
 		ArrayList<File> manifest_modifyFile = new ArrayList<>();
 		try {
 			ContextReplace.findFiles(ProjectPathTree.MainPath, "AndroidManifest.xml", manifest_modifyFile, "com.lenovohit.hospitals", mConfigModel.getPackageName());

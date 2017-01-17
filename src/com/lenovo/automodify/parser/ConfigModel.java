@@ -1,5 +1,5 @@
 package com.lenovo.automodify.parser;
-/*
+/**
  * @author yuzhijun
  * 存放解析后config.xml的model类
  * **/

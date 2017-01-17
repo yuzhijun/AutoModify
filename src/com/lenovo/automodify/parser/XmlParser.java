@@ -19,9 +19,7 @@ import org.xml.sax.SAXException;
 import com.lenovo.automodify.BaseMain;
 import com.lenovo.automodify.utils.ProjectPathTree;
 
-
-
-/*
+/**
  * @author yuzhijun
  * 解析xml类
  * 1.将config.xml中的信息解析到model中
@@ -153,7 +151,7 @@ public class XmlParser {
 			
 			NodeList nodeList = root.getElementsByTagName("meta-data");
 			Element ss = (Element) nodeList.item(0);
-			ss.setAttribute("android:value", "la95E1NT1HQ1Xrpz5ZbtoEvqBBrjcKG66");
+			ss.setAttribute("android:value", BaseMain.mConfigModel.getBDMapKey());
 			
 			TransformerFactory tf = TransformerFactory.newInstance();
 			Transformer transformer = tf.newTransformer();
